@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ES-es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <style>
+        .box{
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            align-content: center;
+            font-size: 23px;
+        }
+        .header { background: #0d1b2a; color: white; }
+        .menu-Escritorio, .menu-Tablet { background: #e63946; color: white; }
+        .hero { background: #457b9d; color: white; }
+        .main { background: #1d3557; color: white; }
+        .banner { background: #f1d352; color: black; }
+        .extra { background: #2a9d8f; color: white; }
+        .image { background: #a8dadc; color: black; }
+        .header { background: #0d1b2a; color: white; }
+        .hero { background: #457b9d; color: white; }
+        .main { background: #1d3557; color: white; }
+        .banner { background: #f0cf3d; color: black; }
+        .extra { background: #2a9d8f; color: black; }
+        .image { background: #a8dadc; color: black; }
+
+
+        /* ====== Alturas por defecto (Mobile) ====== */
+        .header, .menu-Escritorio{ height: 50px;}
+        .menu-tablet, .hero, .main, .banner, .extra, .image { height: 80px; }
+
+        /* ====== Tablet (>=768px y <992px) ====== */
+        @media (min-width: 768px) and (max-width: 991.98px) {
+            .header { height: 50px; }
+            .hero { height: 200px; }
+            .menu{ min-height: 200px;}
+            .main { height: 150px; }
+            .banner { height: 80px; }
+            .extra, .image { height: 120px; }
+        }
+
+        /* ====== Desktop (>=992px) ====== */
+        @media (min-width: 992px) {
+            .header { height: 50px; }
+            .menu-Escritorio { height: 50px; }
+            .hero { height: 300px; }
+            .main { height: 200px; }
+            .banner { height: 100px; }
+            .extra, .image { height: 100px; }
+        }
+    </style>
+</head>
+
+<body class="container">
+    <div class="container-fluid p-0">
+
+        <div class="row g-0">
+            <!-- HEADER -->
+            <div class="col-12 col-md-12 col-lg-3 header box">HEADER</div>
+            <!-- MENU ocultado en md-->
+            <div class="col-12 col-lg-9 d-md-none d-lg-block menu-Escritorio box">MENU</div>
+        </div>
+
+        <div class="row g-0">
+            <!-- HERO -->
+            <div class="col-12 hero box">HERO</div>
+        </div>
+
+        <!--Diseño md personalizado (Tablet)-->
+        <div class="row d-lg-none g-0">
+            <!-- MENU a la izquierda-->
+            <div class="col-md-3 d-md-block d-lg-none d-none menu-Tablet box">MENU</div>
+            <div class="col-md-9">
+                <!--A la izquierda de MENU-->
+                <div class="row g-0">
+                    <!-- MAIN -->
+                    <div class="col-12 col-md-12 main box">MAIN</div>
+                    <!-- BANNER -->
+                    <div class="col-12 col-md-12 banner box">BANNER</div>
+                    <!-- EXTRA -->
+                    <div class="col-12 col-md-8 extra box">EXTRA</div>
+                    <!-- IMAGE -->
+                    <div class="col-12 col-md-4 image box">IMAGE</div>
+                </div>
+            </div>
+        </div>
+
+        <!--Diseño lg personalizado (Escritorio)-->
+        <div class="row d-lg-flex d-none g-0">
+            <!-- MAIN a la izquierda -->
+            <div class="col-lg-5 main box">MAIN</div>
+
+            <!-- Bloque derecho: EXTRA + IMAGE apilados verticalmente -->
+            <div class="col-lg-7 flex-column ">
+                <div class="offset-6 image box">IMAGE</div>
+                <div class="offset-6 extra box">EXTRA</div>
+            </div>
+            <!-- Banner debajo -->
+            <div class="col-12 banner box">BANNER</div>
+        </div>
+    </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
