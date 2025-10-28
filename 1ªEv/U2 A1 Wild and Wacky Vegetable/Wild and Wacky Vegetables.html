@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Wild & Wacky Vegetables</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <style>
+        body { background-color: #f8f9fa; }
+        .btn-primary { border-radius: 12px; transition: 0.2s ease-in-out; }
+        .btn-primary:hover { background-color: #ab3aed; }
+        .card { box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+        .carousel-item img { height: 400px; object-fit: cover; }
+    </style>
+</head>
+
+<body>
+    <!-- NavBar con fondo azul y letra blanca "encabezado" -->
+    <nav class="navbar navbar-expand-sm navbar-dark bg-primary mb-4">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">U2 A1 Wild and Wacky Vegetable</a>
+            <button class="navbar-toggler" type="button">
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Barra lateral para navegar sobre las diferentes páginas -->
+            <div class="col-sm-3 mb-3">
+                <h3><b>Some Favorites</b></h3>
+                <ul class="nav nav-pills flex-column mb-3">
+                    <li class="nav-item"><a class="nav-link active" href="Wild and Wacky Vegetables.html">Celery Root</a></li>
+                    <li class="nav-item"><a class="nav-link" href="Spaghetti Squash.html">Spaghetti Squash</a></li>
+                    <li class="nav-item"><a class="nav-link" href="Killer Mushrooms.html">Killer Mushrooms</a></li>
+                </ul>
+
+                <!--Formulario para buscar lo deseado-->
+                <form class="d-flex mb-3">
+                    <input class="form-control me-2" type="search" placeholder="Search vegetables..." aria-label="Search">
+                    <button class="btn btn-primary" type="submit">Search</button>
+                </form>
+
+                <div class="alert alert-warning" role="alert">
+                    <b>Pro-Tip</b>: Eat your veggies daily!
+                </div>
+            </div>
+
+            <div class="col-sm-9">
+                <h1 class="mb-3">Wild & Wacky Vegetables</h1>
+                <blockquote class="blockquote">
+                    <p>The beet is the most intense of vegetables. The radish is more feverish, but the fire of the radish is a cold fire, the fire of discontent not of passion.</p>
+                    <i class="bi bi-award-fill"></i> <small>Tom Robbins</small>
+                </blockquote>
+
+                <!-- Carousel de imagenes sobre las verduras-->
+                <div id="veggieCarousel" class="carousel slide mb-4">
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#veggieCarousel" data-bs-slide-to="0" class="active"
+                            aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#veggieCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                        <button type="button" data-bs-target="#veggieCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                    </div>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="http://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Beets-Bundle.jpg/800px-Beets-Bundle.jpg" class="d-block w-100 img-thumbnail" alt="Beets">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5>Beets</h5>
+                                <p>Delicious and nutrient-rich!</p>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <img src="http://upload.wikimedia.org/wikipedia/commons/9/9e/CarrotDiversityLg.jpg" class="d-block w-100" alt="Carrots">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5>Carrots</h5>
+                                <p>Crunchy and full of beta-carotene!</p>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <img src="http://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Green_Asparagus_New_York_11_May_2006.jpg/220px-Green_Asparagus_New_York_11_May_2006.jpg" class="d-block w-100" alt="Asparagus">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5>Asparagus</h5>
+                                <p>Perfect for spring meals!</p>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#veggieCarousel" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#veggieCarousel" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+
+                <!-- Cards responsive con separación entre ellas con información sobre el vegetal-->
+                <h2 class="mb-3">Popular Veggies</h2>
+                <div class="row row-cols-1 row-cols-md-3 g-4 mb-4">
+                    <div class="col">
+                        <div class="card h-100 shadow-sm">
+                            <img src="http://upload.wikimedia.org/wikipedia/commons/2/21/Beets-Bundle.jpg" class="card-img-top" alt="Beets">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Beets</h5>
+                                <p class="card-text"><i>Rich in antioxidants.</i></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card h-100 shadow-sm">
+                            <img src="http://upload.wikimedia.org/wikipedia/commons/9/9e/CarrotDiversityLg.jpg" class="card-img-top" alt="Carrots">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Carrots</h5>
+                                <p class="card-text"><i>Good for eyesight.</i></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card h-100 shadow-sm">
+                            <img src="http://upload.wikimedia.org/wikipedia/commons/5/5f/Green_Asparagus_New_York_11_May_2006.jpg" class="card-img-top" alt="Asparagus">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Asparagus</h5>
+                                <p class="card-text"><i>Perfect in salads.</i></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tabla responsive con enfermedades sobre los vegetales -->
+                <h2 class="mb-3">Veggie Diseases</h2>
+                <div class="table-responsive">
+                    <table class="table table-striped table-hover table-bordered table-info">
+                        <thead class="table-dark">
+                            <tr>
+                                <th>Veggie</th>
+                                <th>Disease</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Beets</td>
+                                <td>Beeturia</td>
+                            </tr>
+                            <tr>
+                                <td>Carrots</td>
+                                <td>Carotenosis</td>
+                            </tr>
+                            <tr>
+                                <td>Asparagus</td>
+                                <td>Asparagosis</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!--Separador-->
+                <hr>
+                <!--Texto informativo-->
+                <h2>Really informative info</h2>
+                <p>Kale courgette salsify mustard broccoli seakale wakame potato fava bean tigernut leek celery spinach
+                    avocado cabbage celtuce rutabaga kohlrabi. Parsnip pea soko groundnut bitterleaf spring onion. Grape
+                    dulse rutabaga lentil gram kakadu plum water spinach cabbage lotus root.
+                </p>
+                <p>
+                    Mung bean quandong kale prairie turnip celery gram zucchini pumpkin green bean silver beet chard
+                    endive komatsuna eggplant kakadu plum radish broccoli. Arugula amaranth fennel wakame peanut garlic
+                    chickweed. Sorrel jícama quandong kale chickpea water chestnut rock melon aubergine lettuce pea
+                    azuki bean cress onion sea lettuce dandelion nori dulse rutabaga. Coriander napa cabbage bok choy
+                    carrot kakadu plum brussels sprout bamboo shoot salad okra cucumber garlic kombu beet greens
+                    cauliflower summer purslane. Artichoke daikon horseradish arugula taro catsear kombu rock melon pea
+                    sprouts collard greens mustard courgette lettuce soko maize plantain.
+                </p>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ORV6uL7Zig+hoWKnDgk1Bf+Pfr/6D3nWgk7V4Pj1FtwVhtdBOw3bhx3ls0v4+u1qU" crossorigin="anonymous"></script>
+</body>
+
+</html>
