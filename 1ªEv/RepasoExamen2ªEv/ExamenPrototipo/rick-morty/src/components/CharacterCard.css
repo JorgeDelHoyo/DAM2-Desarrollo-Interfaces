@@ -1,0 +1,42 @@
+/* --- Estilos para la Cuadrícula --- */
+
+.character-grid {
+    display: grid;
+    /* Crea columnas automáticas de mínimo 200px */
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+    /* Espacio entre tarjetas */
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.character-card {
+    border: 1px solid #444;
+    border-radius: 8px;
+    background-color: #e8e8e8;
+    overflow: hidden;
+    /* Para que la imagen no se salga */
+    text-align: center;
+    transition: transform 0.2s ease-in-out;
+    cursor: pointer;
+    /* Indica que se puede hacer clic */
+}
+
+.character-card:hover {
+    transform: scale(1.05);
+    /* Efecto al pasar el ratón */
+    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.83);
+}
+
+.character-card img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.character-card h3 {
+    padding: 15px;
+    margin: 0;
+    font-size: 1.2rem;
+}

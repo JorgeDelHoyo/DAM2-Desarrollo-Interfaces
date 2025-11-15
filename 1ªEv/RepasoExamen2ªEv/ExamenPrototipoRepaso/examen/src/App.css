@@ -1,0 +1,33 @@
+/* --- Encabezado y Título --- */
+.App-header {
+  text-align: center;
+  padding: 20px;
+  background-color: #0b530a;
+  border-bottom: 4px solid #88f011;
+  margin-bottom: 20px;
+}
+
+.App-header h1 {
+  color: #ffffff;
+  margin-top: 0;
+}
+
+/* --- Input de Búsqueda --- */
+.App-header input {
+  padding: 10px;
+  border-radius: 25px;
+  border: 2px solid #88f011;
+  width: 300px;
+  margin-right: 8px;
+}
+
+/* --- Botón de Búsqueda --- */
+.App-header button {
+  padding: 12px 25px;
+  font-weight: bold;
+  border-radius: 25px;
+}
+
+.error {
+  color: #ff6b6b;
+}

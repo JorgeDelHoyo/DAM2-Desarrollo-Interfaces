@@ -1,0 +1,32 @@
+.character-grid{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.character-card{
+    border: 1px solid black;
+    border-radius: 8px;
+    overflow: hidden;
+    text-align: center;
+    transition: ease-in-out 0.2s;
+    cursor: pointer;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+}
+
+.character-card:hover{
+    transform: scale(1.05);
+}
+
+.character-card img{
+    width: 100%;
+    display: block;
+}
+
+.character-card h3{
+    padding: 15px;
+    margin: 0;
+}
