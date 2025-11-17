@@ -1,0 +1,38 @@
+/* 1. ESTILOS GLOBALES Y DE APP */
+body {
+  margin: 0;
+  font-family: sans-serif;
+  background-color: #222;
+  color: #eee;
+}
+
+.App {
+  text-align: center;
+}
+
+.App-header {
+  background-color: #333;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.App-header h1 {
+  margin: 0;
+  color: #88C149; /* Verde Rick */
+}
+
+.main-content {
+  padding: 0 15px;
+}
+
+/* Mensajes de Carga y Error */
+.status-loading {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #88C149;
+}
+.status-error {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #D63D2E; /* Rojo */
+}

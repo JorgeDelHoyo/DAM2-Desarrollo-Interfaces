@@ -6,46 +6,24 @@
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.85);
-    /* Fondo negro semi-transparente */
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 1000;
-    /* Asegura que esté por encima de todo */
     backdrop-filter: blur(5px);
 }
 
 /* El contenedor del contenido */
 .modal-content {
-    background-color: var(--secondary-bg);
+    background-color: rgb(70, 70, 70);
     border-radius: 10px;
     overflow: hidden;
-    /* Para que la imagen se ajuste a las esquinas */
     position: relative;
     width: 90%;
     max-width: 600px;
-    /* Ancho máximo del modal */
     display: flex;
     flex-direction: column;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-}
-
-/* Media query para pantallas más grandes (PC) */
-@media (min-width: 768px) {
-    .modal-content {
-        flex-direction: row;
-        /* Imagen al lado del texto */
-        max-width: 800px;
-    }
-
-    .modal-content img {
-        width: 40%;
-        object-fit: cover;
-    }
-
-    .modal-info {
-        width: 60%;
-    }
 }
 
 .modal-content img {
@@ -68,7 +46,7 @@
 .modal-info p {
     font-size: 1.1rem;
     margin-bottom: 10px;
-    color: var(--text-light);
+    color: white;
 }
 
 /* Etiqueta para la info (Origin, Location, etc.) */
@@ -78,36 +56,6 @@
     display: block;
     margin-bottom: 3px;
 }
-
-/* Círculo de estado (Vivo, Muerto, etc.) */
-.status-line {
-    display: flex;
-    align-items: center;
-    font-weight: 500;
-}
-
-.status-dot {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    margin-right: 8px;
-}
-
-.status-alive {
-    background-color: #55CC44;
-    /* Verde vivo */
-}
-
-.status-dead {
-    background-color: var(--error-color);
-    /* Rojo muerto */
-}
-
-.status-unknown {
-    background-color: #9E9E9E;
-    /* Gris desconocido */
-}
-
 
 /* Botón de cerrar */
 .modal-close-button {
