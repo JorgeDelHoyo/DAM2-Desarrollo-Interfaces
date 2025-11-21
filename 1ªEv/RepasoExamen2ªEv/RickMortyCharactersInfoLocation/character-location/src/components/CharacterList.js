@@ -3,7 +3,7 @@ import CharacterCard from "./CharacterCard";
 function CharacterList({characters, onCharacterClick}) {
     if(characters.length === 0) return <p>No characters found</p>
     return(
-        <div>
+        <div className="character-list">
             {characters.map((character) => (
                 <CharacterCard
                 key={character.id}

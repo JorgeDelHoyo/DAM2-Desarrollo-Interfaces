@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import CharacterCard from "./CharacterCard";
 import CharacterList from "./CharacterList";
 
 function CharacterDetail({locationUrl, onClose}) {

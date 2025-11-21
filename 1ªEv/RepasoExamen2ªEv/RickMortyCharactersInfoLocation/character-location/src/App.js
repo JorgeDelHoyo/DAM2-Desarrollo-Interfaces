@@ -6,70 +6,56 @@ import CharacterDetail from './components/CharacterDetail';
 
 function App() {
 
-  const [characters, setCharacters] = useState([]);
-  const [selectedCharacter, setSelectedCharacter] = useState(null);
-  const [error, setError] = useState(null);
-  const [loading, setLoading] = useState(false)
+  const [selectedLocationURL, setSelectedLocationURL] = useState(null);
+  const [error, setError] = useState(null);;
+  const [loading, setLoading] = useState(false);
 
-
-  useEffect(() => {
-    fetchCharacters();
-  }, []);
-
-  const fetchCharacters = async (name='') => {
-
-    setError(null);
+  const handleSearch = async (locationName) => {
+    setSelectedLocationURL(null);
     setLoading(true);
+    setError(null);
 
-    try{
-      const url = name ? `https://rickandmortyapi.com/api/character/?name=${name}`:'https://rickandmortyapi.com/api/character' ;
-      const response = await fetch(url)
-      const data = await response.json()
+    try {
+      const response = await fetch(`https://rickandmortyapi.com/api/location/?name=${locationName}`);
+      const data = await response.json();
 
-      if(response.ok){
-        setCharacters(data.results || [])
+      if(data.results && data.results.length > 0){
+        setSelectedLocationURL(data.results[0].url);
       }else{
-        setError("Character error")
+        setLoading("Character error")
       }
-    }catch(err){
+    } catch (err) {
       setError("Fetch error")
     }finally{
-      setLoading(false)
+      setLoading(false);
     }
-  }
-
-  const handleSearch = (term) => {
-    fetchCharacters(term)
-    setSelectedCharacter(null)
-  }
-
-  const handleCharacterClick = (character) => {
-    setSelectedCharacter(character);
-  }
+  };
 
   const onClose = () => {
-    setSelectedCharacter(null);
+    setSelectedLocationURL(null);
   }
   
   return (
     <div className="App">
-      <header className="App-header">
-        <SearchBar
-        onSearch={handleSearch}
-        />
-      </header>
+      <div className="search-container">
+        <h1>Buscador de Residentes 🌍</h1>
+        <SearchBar onSearch={handleSearch} />
+      </div>
+
       <main>
-        {!loading && (
-          <CharacterList
-            characters={characters}
-            onCharacterClick={handleCharacterClick}
-          />
-        )}
-        {selectedCharacter && (
-          <CharacterDetail
-            locationUrl={selectedCharacter.location.url}
-            onClose={onClose}
-          />
+        {error && <div className="error-msg">{error}</div>}
+
+        {/* Si tenemos una URL, mostramos tu componente superpuesto */}
+        {selectedLocationURL && (
+          <div className="modal-overlay">
+            <div className="modal-content">
+              {/* Tu componente inteligente hace todo el trabajo aquí dentro */}
+              <CharacterDetail 
+                locationUrl={selectedLocationURL} 
+                onClose={onClose} 
+              />
+            </div>
+          </div>
         )}
       </main>
     </div>
