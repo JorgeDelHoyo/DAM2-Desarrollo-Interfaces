@@ -11,14 +11,15 @@ function SearchBar({onSearch}) {
 
     return(
         <form onSubmit={handleSubmit} className="search-bar">
-            <input 
+            <input
             type="text"
             value={searchTerm}
-            placeholder="Busca localizacion"
-            onChange={(e) => setSearchTerm(e.target.value)}/>
-        <button type="submit">Buscar</button>
+            placeholder="Type here ..."
+            onChange={(e) => setSearchTerm(e.target.value)}
+            />
+            <button type="submit">Search</button>
         </form>
     );
 }
 
-export default  SearchBar;
+export default SearchBar;
