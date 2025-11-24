@@ -1,0 +1,53 @@
+/* --- LISTA DE LOCALIZACIONES --- */
+
+/* El contenedor: organiza los elementos en rejilla */
+.episode-list {
+    display: grid;
+    /* Esto crea columnas automáticas. Mínimo 250px de ancho cada tarjeta */
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 15px;
+    /* Espacio entre tarjetas */
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    /* Centrar en pantalla */
+}
+
+/* Cada tarjeta (los h3) */
+.episode-card {
+    background-color: #3c3e44;
+    /* Gris oscuro R&M */
+    color: #ffffff;
+    padding: 20px;
+    margin: 0;
+    /* Quitamos el margen por defecto de los h3 */
+    border-radius: 8px;
+    text-align: center;
+    cursor: pointer;
+    /* Manita al pasar el ratón */
+    font-weight: 500;
+    font-size: 1.1rem;
+    border: 2px solid transparent;
+    /* Borde invisible preparado */
+    transition: all 0.3s ease;
+    /* Animación suave */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Efecto Hover: Al pasar el ratón por encima */
+.episode-card:hover {
+    background-color: #454950;
+    border-color: #97ce4c;
+    /* Verde Rick */
+    transform: translateY(-5px);
+    /* Se levanta un poco */
+    box-shadow: 0 5px 15px rgba(151, 206, 76, 0.2);
+    /* Resplandor verde suave */
+    color: #97ce4c;
+}
+
+/* Efecto Active: Al hacer click */
+.episode-card:active {
+    transform: scale(0.98);
+    /* Se encoge un pelín al pulsar */
+}
