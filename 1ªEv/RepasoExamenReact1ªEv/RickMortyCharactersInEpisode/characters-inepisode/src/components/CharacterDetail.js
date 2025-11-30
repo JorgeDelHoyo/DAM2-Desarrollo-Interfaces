@@ -1,16 +1,13 @@
-import './CharacterDetail.css';
-
-function CharacterDetail({selectedCharacter, onClose}) {
+function CharacterDetail({character, onClose}) {
     return(
         <div className="modal-overlay">
-            <div className="modal-content">
-                <button onClick={onClose}>X</button>
-                <img src={selectedCharacter.image} />
-                <h3>Name: {selectedCharacter.name}</h3>
-                <p>Status: {selectedCharacter.status}</p>
-                <p>Gender: {selectedCharacter.gender}</p>
-                <p>Specie: {selectedCharacter.species}</p>
-                <p>Location: {selectedCharacter.location.name}</p>
+            <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+                <button onClick={onClose} className="close-button">X</button>
+                <div>
+                    <img src={character.image} alt={character.name}/>
+                    <h3>{character.name}</h3>
+                    <p>{character.species}</p>
+                </div>
             </div>
         </div>
     );
