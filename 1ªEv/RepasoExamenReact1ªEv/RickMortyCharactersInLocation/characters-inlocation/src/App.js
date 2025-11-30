@@ -1,40 +1,73 @@
+import { useEffect, useState } from 'react';
 import './App.css';
 import SearchBar from './components/SearchBar';
-import { useEffect, useState } from 'react';
 import LocationList from './components/LocationList';
+import LimitSelector from './components/LimitSelector';
 import CharacterList from './components/CharacterList';
 import CharacterDetail from './components/CharacterDetail';
 
 function App() {
 
   const [locations, setLocations] = useState([]);
-  const [locationSelected, setLocationSelected] = useState(null);
+  const [selectedLocations, setSelectedLocations] = useState(null);
   const [characters, setCharacters] = useState([]);
-  const [characterSelected, setCharacterSelected] = useState(null);
+  const [selectedCharacter, setSelectedCharacter] = useState(null);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [limit, setLimit] = useState(999); // Todos
 
-  const fetchLocations = async (name = '') => {
-    setLoading(true);
+  const fetchLocations = async(name = '') => {
     setError(null);
-    setCharacterSelected(null);
+    setLoading(true);
     setCharacters([]);
-    setLocationSelected(null);
+    setLocations([]);
+    setSelectedCharacter(null);
+    setSelectedLocations(null);
 
     try {
-      const url = name ? `https://rickandmortyapi.com/api/location/?name=${name}` : 'https://rickandmortyapi.com/api/location';
+      const url = name ? `https://rickandmortyapi.com/api/location/?name=${name}`:'https://rickandmortyapi.com/api/location';
       const response = await fetch(url);
       const data = await response.json();
 
       if(response.ok){
         setLocations(data.results);
       } else {
-        setError("Location error");
         setLocations([]);
+        setError("Location error");
       }
     } catch (err) {
       console.log(err);
-      setError("Fetch error1");
+      setError("Locations fetch error");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const fetchCharacters = async() => {
+    setError(null);
+    setLoading(true);
+    
+    try {
+      const residentsUrl = selectedLocations.residents;
+      const arrayTemp = [];
+
+      for (let i = 0; i < residentsUrl.length; i++) {
+        const urlCh = residentsUrl[i];
+        const respCh = await fetch(urlCh);
+        const dataCh = await respCh.json();
+
+        if(respCh.ok){
+          arrayTemp.push(dataCh);
+        } else {
+          setError("Character Url error");
+        }
+      }
+
+      setCharacters(arrayTemp);
+
+    } catch (err) {
+      console.log(err);
+      setError("Character fetch error");
     } finally {
       setLoading(false);
     }
@@ -45,70 +78,54 @@ function App() {
   }, []);
 
   useEffect(() => {
-    if(!locationSelected) return;
-
-    async function fetchCharacters(){
-      const residentsUrl = locationSelected.residents;
-      const residentsArray = [];
-
-      for (let i = 0; i < residentsUrl.length; i++) {
-        const charUrl = residentsUrl[i];
-        const respChar = await fetch(charUrl);
-        const dataChar = await respChar.json();
-        
-        residentsArray.push(dataChar);
-      }
-      setCharacters(residentsArray);
-    }
-
+    if(!selectedLocations) return;
     fetchCharacters();
-  }, [locationSelected]);
+  }, [selectedLocations]);
 
   const onSearch = (name) => {
     fetchLocations(name);
   };
 
   const onClick = (location) => {
-    setLocationSelected(location)
+    setSelectedLocations(location);
   };
 
   const onClickCh = (character) => {
-    setCharacterSelected(character);
+    setSelectedCharacter(character);
   };
 
   const onClose = () => {
-    setCharacterSelected(null);
+    setSelectedCharacter(null);
   };
 
   return (
     <div className="App">
       <header className="App-header">
         <h1>Rick & Morty Searcher</h1>
-        <SearchBar
-          onSearch={onSearch}
-        />
+        <SearchBar onSearch={onSearch} />
       </header>
       <main>
+        <LimitSelector 
+          limit={limit}
+          onChangeLimit={setLimit}
+        />
         {loading && <p>Loading...</p>}
         {error && <p>{error}</p>}
-
-        {!loading && !locationSelected && (
+        {!loading && !selectedLocations && (
           <LocationList
-            locations={locations}
+            locations={locations.slice(0, limit)}
             onClick={onClick}
           />
         )}
-
-        {locationSelected && (
+        {selectedLocations && (
           <CharacterList
-            characters={characters}
+            characters={characters.slice(0,limit)}
             onClick={onClickCh}
           />
         )}
-
-        {characterSelected && (
+        {selectedCharacter && (
           <CharacterDetail
-            characterSelected={characterSelected}
+            character={selectedCharacter}
             onClose={onClose}
           />
         )}

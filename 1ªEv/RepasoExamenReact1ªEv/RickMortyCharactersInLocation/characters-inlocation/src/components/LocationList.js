@@ -1,17 +1,11 @@
-import './LocationList.css';
-
 function LocationList({locations, onClick}) {
     return(
-        <div className="location-list">
+        <div className="list-container">
             {locations.map((location) => (
-                <h3
-                    key={location.id} 
+                <h3 key={location.id}
                     onClick={() => onClick(location)}
-                    className="location-card"
-                    >
-                    
-                    {location.name}
-                </h3>
+                    className="list-item"
+                >{location.name}</h3>
             ))}
         </div>
     );
