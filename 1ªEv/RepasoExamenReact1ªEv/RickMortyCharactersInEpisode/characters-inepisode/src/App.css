@@ -312,4 +312,8 @@ h1 {
             <option value={10}>10 resultados</option>
             <option value={20}>20 resultados</option>
         </select>
-</div>*/
+</div>
+
+selected--> array
+if(!selected)return
+*/
