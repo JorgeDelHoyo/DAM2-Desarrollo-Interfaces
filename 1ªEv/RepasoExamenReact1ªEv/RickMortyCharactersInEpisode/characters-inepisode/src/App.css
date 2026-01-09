@@ -1,0 +1,319 @@
+/* =========================================
+    1. ESTILOS GENERALES (RESET)
+   ========================================= */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    background-color: #888d96;
+    /* Fondo oscuro oficial */
+    color: #ffffff;
+    min-height: 100vh;
+}
+
+.App {
+    text-align: center;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+h1 {
+    color: #97ce4c;
+    /* Verde Rick */
+    margin-bottom: 30px;
+}
+
+
+/* =========================================
+    2. SEARCHBAR (BUSCADOR)
+   ========================================= */
+.search-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+.search-input {
+    background-color: #3c3e44;
+    border: 2px solid #00b5cc;
+    /* Azul Rick */
+    color: #ffffff;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-size: 16px;
+    outline: none;
+    width: 300px;
+}
+
+.search-button {
+    background-color: #97ce4c;
+    color: #24282f;
+    border: none;
+    padding: 12px 25px;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.search-button:hover {
+    background-color: #b4e058;
+}
+
+
+/* --- SELECTOR DE LÍMITE --- */
+.limit-selector {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.limit-selector label {
+    color: #97ce4c;
+    /* Verde Rick */
+    font-weight: bold;
+}
+
+.limit-select {
+    background-color: #3c3e44;
+    color: white;
+    border: 2px solid #00b5cc;
+    /* Azul Rick */
+    padding: 5px 10px;
+    border-radius: 5px;
+    outline: none;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.limit-select:focus {
+    border-color: #97ce4c;
+    /* Cambia a verde al clicar */
+}
+
+
+/* =========================================
+    3. LISTAS
+   ========================================= */
+
+.list-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+
+    /* CAMBIO CLAVE: Quitamos max-height y overflow */
+    background-color: rgba(32, 35, 41, 0.5);
+    border-radius: 10px;
+    border: 1px solid #444;
+
+    /* Opcional: Para que no se pegue al borde de abajo si la lista es muy larga */
+    margin-bottom: 20px;
+}
+
+/* El estilo de los elementos se mantiene igual de bonito */
+.list-item {
+    background-color: #3c3e44;
+    color: #ffffff;
+    padding: 15px;
+    margin: 0;
+    border-radius: 8px;
+    cursor: pointer;
+
+    font-size: 1rem;
+    font-weight: normal;
+    border-left: 5px solid transparent;
+    transition: all 0.2s ease;
+}
+
+.list-item:hover {
+    background-color: #444850;
+    color: #00b5cc;
+    /* Azul Rick */
+    border-left: 5px solid #97ce4c;
+    /* Verde Portal */
+    padding-left: 20px;
+    transform: translateX(5px);
+    /* Pequeño movimiento a la derecha */
+}
+
+/* =========================================
+    4. GRID PERSONAJES
+   ========================================= */
+
+/* El contenedor padre (La lista completa) */
+.character-grid {
+    display: grid;
+    /* Esto crea columnas automáticas de mínimo 150px de ancho */
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 20px;
+    /* Espacio entre tarjetas */
+    padding: 20px 0;
+}
+
+/* La tarjeta individual */
+.character-card {
+    background-color: #3c3e44;
+    /* Gris oscuro oficial */
+    border-radius: 10px;
+    overflow: hidden;
+    /* Para que la imagen respete los bordes redondos */
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+/* Efecto al pasar el ratón por la tarjeta */
+.character-card:hover {
+    transform: translateY(-5px);
+    /* Se levanta un poco */
+    border-color: #97ce4c;
+    /* Borde Verde Portal */
+    box-shadow: 0 0 15px rgba(151, 206, 76, 0.4);
+    /* Resplandor */
+}
+
+/* La imagen del personaje */
+.character-card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    /* Recorta la imagen para que llene el hueco sin deformarse */
+    display: block;
+}
+
+/* El nombre del personaje */
+.character-card h3 {
+    color: #fff;
+    font-size: 1rem;
+    text-align: center;
+    margin: 0;
+    padding: 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    /* Puntos suspensivos si es muy largo */
+}
+
+/* =========================================
+    5. MODAL (DETALLE PERSONAJE)
+   ========================================= */
+
+/* 1. El Fondo Oscuro (Overlay) */
+.modal-overlay {
+    position: fixed;
+    /* Se queda fijo aunque hagas scroll */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    /* Negro semitransparente */
+    display: flex;
+    justify-content: center;
+    /* Centrar horizontalmente */
+    align-items: center;
+    /* Centrar verticalmente */
+    z-index: 1000;
+    /* Para que quede ENCIMA de todo lo demás */
+    backdrop-filter: blur(5px);
+    /* Efecto borroso pro (opcional) */
+}
+
+/* 2. La Cajita del Personaje */
+.modal-content {
+    background-color: #202329;
+    border: 2px solid #97ce4c;
+    /* Borde Verde Portal */
+    border-radius: 15px;
+    padding: 20px;
+    width: 300px;
+    /* Tamaño fijo para que no se deforme */
+    text-align: center;
+    position: relative;
+    /* Para posicionar el botón X dentro */
+    box-shadow: 0 0 20px rgba(151, 206, 76, 0.6);
+    /* Resplandor verde */
+    animation: popIn 0.3s ease;
+    /* Pequeña animación de entrada */
+}
+
+/* 3. La Imagen dentro del modal */
+.modal-content img {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #444;
+}
+
+/* 4. Textos */
+.modal-content h3 {
+    color: #97ce4c;
+    /* Nombre en verde */
+    margin: 10px 0;
+    font-size: 1.5rem;
+}
+
+.modal-content p {
+    color: #ffffff;
+    font-size: 1.1rem;
+}
+
+/* 5. El Botón de Cerrar (X) */
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #ff5252;
+    /* Rojo para cerrar */
+    color: white;
+    border: none;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s;
+}
+
+.close-button:hover {
+    transform: scale(1.2);
+    /* Crece al pasar el ratón */
+    background-color: #ff0000;
+}
+
+/* Animación de entrada */
+@keyframes popIn {
+    from {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+/*<div className='limit-selector'>
+        <label>Mostrar:</label>
+        <select value={limit}
+                onChange={(e) => setLimit(Number(e.target.value))}
+                className='limit-select'>
+            <option value={5}>5 resultados</option>
+            <option value={10}>10 resultados</option>
+            <option value={20}>20 resultados</option>
+        </select>
+</div>
+
+selected--> array
+if(!selected)return
+*/

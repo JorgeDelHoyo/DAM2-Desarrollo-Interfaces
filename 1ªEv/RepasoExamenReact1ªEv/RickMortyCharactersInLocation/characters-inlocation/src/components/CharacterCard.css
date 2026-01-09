@@ -1,0 +1,54 @@
+/* --- ESTILOS DE LAS TARJETAS (CharacterCard) --- */
+.character-card {
+    background-color: #fff;
+    /* Fondo blanco limpio */
+    border-radius: 12px;
+    /* Esquinas redondeadas */
+    overflow: hidden;
+    /* Para que la imagen respete el redondeo */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* Sombra suave */
+    cursor: pointer;
+    /* Manita al pasar el ratón */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    /* Animación suave */
+    border: 1px solid #eaeaea;
+}
+
+/* Efecto Hover: La tarjeta se levanta un poco */
+.character-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    border-color: #97ce4c;
+    /* Borde verde R&M al pasar el ratón */
+}
+
+/* Estilo de la imagen */
+.character-card img {
+    width: 100%;
+    /* Ocupa todo el ancho de la tarjeta */
+    height: 220px;
+    /* Altura fija para que todas sean iguales */
+    object-fit: cover;
+    /* Recorta la imagen si es necesario para no deformarla */
+    display: block;
+    /* Elimina espacios extraños debajo de la imagen */
+}
+
+/* Contenedor del texto */
+.card-info {
+    padding: 15px;
+    text-align: center;
+}
+
+/* Estilo del nombre */
+.character-card h3 {
+    margin: 0;
+    font-size: 1.1rem;
+    color: #333;
+    font-weight: bold;
+    /* Puntos suspensivos si el nombre es muy largo */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
