@@ -12,7 +12,5 @@
   <modules>
   	<module>order-domain</module>
   	<module>order-service</module>
-  	<module>aa</module>
-  	<module>aaaaaaaaaaaaaaaaaaaaaaaaa</module>
   </modules>
 </project>

@@ -6,6 +6,11 @@
   <packaging>pom</packaging>
   <name>order-management</name>
   <description>Modulo padre del proyecto</description>
+  <properties>
+  	<project.buildsourceEncoding>UTF-8</project.buildsourceEncoding>
+  	<maven.compiler.source>21</maven.compiler.source>
+  	<maven.compiler.target>21</maven.compiler.target>
+  </properties>
   <modules>
   	<module>common</module>
   	<module>core</module>
