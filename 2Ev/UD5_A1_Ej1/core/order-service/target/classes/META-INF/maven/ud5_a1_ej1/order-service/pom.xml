@@ -1,0 +1,25 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>ud5_a1_ej1</groupId>
+    <artifactId>core</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+  </parent>
+  <artifactId>order-service</artifactId>
+  <name>order-service</name>
+  <description>Submodulo order-service de core</description>
+  
+  <!-- order-service debe depender de order-domain y common-utils-->
+  <dependencies>
+  	<dependency>
+  		<groupId>ud5_a1_ej1</groupId>
+  		<artifactId>order-domain</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+  	</dependency>
+  	<dependency>
+  		<groupId>ud5_a1_ej1</groupId>
+  		<artifactId>common-utils</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+  	</dependency>
+  </dependencies>
+</project>
