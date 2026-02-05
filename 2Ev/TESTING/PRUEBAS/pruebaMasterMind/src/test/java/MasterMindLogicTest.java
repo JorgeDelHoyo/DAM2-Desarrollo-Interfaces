@@ -4,76 +4,87 @@ import org.junit.jupiter.api.Test;
 import java.awt.*;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
 public class MasterMindLogicTest {
-
     private final Color[] PALETTE = {Color.RED, Color.GREEN, Color.BLUE, Color.YELLOW};
-    private final String[] LABELS = {"R","G","B","Y"};
+    private final String[] LABELS = {"R", "G", "B", "Y"};
+
 
     @Test
-    public void testGenerateSecret() {
-        MasterMindLogic logic = new MasterMindLogic(PALETTE,4,LABELS);
-        String secreto = logic.showSecret();
-        assertEquals(4, secreto.length(), "El secreto aleatorio debe tiene 4 de longitud");
+    public void testGenerateSecretLength4() {
+        MasterMindLogic logic = new MasterMindLogic(PALETTE, 4, LABELS);
+
+        String secret = logic.showSecret();
+        assertEquals(4, secret.length(), "Length must be 4");
     }
 
     @Test
-    public void testCheckGuessAciertoTotal() {
-        Color[] secretoFijo = {Color.RED, Color.RED};
-        MasterMindLogic logic = new MasterMindLogic(PALETTE,secretoFijo,LABELS);
+    public void testShowSecretNotExistsColor() {
+        Color[] forced = {Color.BLACK};
+        MasterMindLogic logic = new MasterMindLogic(PALETTE,forced, LABELS);
 
-        Color[] intento = {Color.RED, Color.RED};
-        MasterMindLogic.Result resultado = logic.checkGuess(intento);
+        assertEquals("", logic.showSecret(), "Color doesn't exists");
+    }
 
-        assertEquals(2,resultado.blacks, "Hay 2/2 aciertos posición");
-        assertEquals(0, resultado.whites, "Hay 0/2 fallos posición");
+
+    @Test
+    public void testCheckGuessAllBlacksZeroWhite() {
+        Color[] forced = {Color.RED, Color.RED};
+        MasterMindLogic logic = new MasterMindLogic(PALETTE, forced, LABELS);
+
+        Color[] rndom = {Color.RED, Color.RED};
+        MasterMindLogic.Result result = logic.checkGuess(rndom);
+
+        assertEquals(2, result.blacks, "2 correct position");
+        assertEquals(0, result.whites, "0 incorrect position");
     }
 
     @Test
-    public void testCheckGuessAciertoUna() {
-        Color[] secretoFijo = {Color.RED, Color.RED};
-        MasterMindLogic logic = new MasterMindLogic(PALETTE,secretoFijo,LABELS);
+    public void testCheckGuessOneBlackZeroWhite() {
+        Color[] forced = {Color.RED, Color.GREEN};
+        MasterMindLogic logic = new MasterMindLogic(PALETTE, forced, LABELS);
 
-        Color[] intento = {Color.RED, Color.BLUE};
-        MasterMindLogic.Result resultado = logic.checkGuess(intento);
+        Color[] rndom = {Color.RED, Color.RED};
+        MasterMindLogic.Result result = logic.checkGuess(rndom);
 
-        assertEquals(1,resultado.blacks, "Hay 1/2 aciertos posición");
-        assertEquals(0, resultado.whites, "Hay 1/2 fallos posición");
+        assertEquals(1, result.blacks, "1 correct position");
+        assertEquals(0, result.whites, "0 incorrect position");
     }
 
     @Test
-    public void testCheckGuessNingunAcierto() {
-        Color[] secretoFijo = {Color.RED, Color.RED};
-        MasterMindLogic logic = new MasterMindLogic(PALETTE, secretoFijo, LABELS);
+    public void testCheckGuessZeroBlackZeroWhite() {
+        Color[] forced = {Color.RED, Color.GREEN};
+        MasterMindLogic logic = new MasterMindLogic(PALETTE, forced, LABELS);
 
-        Color[] intento = {Color.BLUE, Color.YELLOW};
-        MasterMindLogic.Result resultado = logic.checkGuess(intento);
+        Color[] rndm = {Color.BLUE, Color.YELLOW};
+        MasterMindLogic.Result result = logic.checkGuess(rndm);
 
-        assertEquals(0,resultado.blacks,"Hay 0/2 aciertos posición");
-        assertEquals(0, resultado.whites, "Hay 0/2 fallos posición");
+        assertEquals(0, result.blacks, "0 correct position");
+        assertEquals(0, result.whites, "0 incorrect position");
     }
 
     @Test
-    public void testCheckGuessUnaPosicionIncorrecta() {
-        Color[] secretoFijo = {Color.RED, Color.BLUE};
-        MasterMindLogic logic = new MasterMindLogic(PALETTE, secretoFijo, LABELS);
+    public void testCheckGuessZeroBlackOneWhite() {
+        Color[] forced = {Color.RED, Color.GREEN};
+        MasterMindLogic logic = new MasterMindLogic(PALETTE, forced, LABELS);
 
-        Color[] intento = {Color.BLUE, Color.YELLOW};
-        MasterMindLogic.Result resultado = logic.checkGuess(intento);
+        Color[] rndm = {Color.BLUE, Color.RED};
+        MasterMindLogic.Result result = logic.checkGuess(rndm);
 
-        assertEquals(0, resultado.blacks, "Hay 0/2 aciertos posición");
-        assertEquals(1, resultado.whites, "Hay 1/2 fallos posición");
+        assertEquals(0, result.blacks, "0 correct position");
+        assertEquals(1, result.whites, "1 incorrect position");
     }
 
     @Test
-    public void testCheckGuessNingunaPosicionCorrecta() {
-        Color[] secretoFijo = {Color.RED, Color.YELLOW};
-        MasterMindLogic logic = new MasterMindLogic(PALETTE, secretoFijo, LABELS);
+    public void testCheckGuessZeroBlackTwoWhite() {
+        Color[] forced = {Color.RED, Color.GREEN};
+        MasterMindLogic logic = new MasterMindLogic(PALETTE, forced, LABELS);
 
-        Color[] intento = {Color.YELLOW, Color.RED};
-        MasterMindLogic.Result resultado = logic.checkGuess(intento);
+        Color[] rndm = {Color.GREEN, Color.RED};
+        MasterMindLogic.Result result = logic.checkGuess(rndm);
 
-        assertEquals(0, resultado.blacks, "Hay 0/2 aciertos posición");
-        assertEquals(2, resultado.whites, "Hay 2/2 fallos posición");
+        assertEquals(0, result.blacks, "0 correct position");
+        assertEquals(2, result.whites, "2 incorrect position");
     }
 }

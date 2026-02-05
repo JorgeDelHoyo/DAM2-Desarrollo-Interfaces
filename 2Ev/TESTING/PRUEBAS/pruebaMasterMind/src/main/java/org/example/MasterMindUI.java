@@ -23,6 +23,7 @@ public class MasterMindUI {
     // Stores each row of feedback pins (black/white pins for each guess)
     private ArrayList<Circle[]> pinRows = new ArrayList<>();
 
+
     private int currentRow = 0;
 
     // Circle class for rounded objects
