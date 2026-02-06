@@ -17,11 +17,10 @@ public class MasterMindLogic {
         this.LABELS = labels;
     }
 
-    // CONSTRUCTOR PARA TEST
-    public MasterMindLogic(Color[] palette, Color[] secretForced, String[] labels) {
-        this.PALETTE = palette;
-        this.SECRET = secretForced;
-        this.LABELS = labels;
+    // Empty constructor
+    public MasterMindLogic(){
+        this.PALETTE = new Color[]{Color.RED,Color.GREEN,Color.BLUE};
+
     }
 
     // Secret generator
