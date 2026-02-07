@@ -1,14 +1,9 @@
 package org.example;
 
-import java.applet.Applet;
-import java.awt.Color;
-import java.awt.Event;
-import java.awt.Graphics;
-import java.awt.Image;
-import java.awt.Rectangle;
-import java.io.File;
-
 import javax.activation.FileDataSource;
+import java.applet.Applet;
+import java.awt.*;
+import java.io.File;
 
 public class Arkanoid extends Applet implements Runnable{
     private static final int SCREEN_LIMIT_Y = 300;
