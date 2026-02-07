@@ -17,7 +17,7 @@ public class Junit {
     }
 
     /*
-     * JUNIT este metodo devuelve el tipo de triangulo dados tres lados
+     * JUNIT este método devuelve el tipo de triángulo dados tres lados
      */
     public static String triangle(int a, int b, int c) {
         if (a < b && b < c && (a * a) + (b * b) > (c * c)) {
