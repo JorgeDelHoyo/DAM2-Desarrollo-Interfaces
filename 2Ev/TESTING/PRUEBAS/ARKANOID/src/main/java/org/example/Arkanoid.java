@@ -1,11 +1,11 @@
 package org.example;
 
 import javax.activation.FileDataSource;
-import java.applet.Applet;
+import javax.swing.*;
 import java.awt.*;
 import java.io.File;
 
-public class Arkanoid extends Applet implements Runnable{
+public class Arkanoid extends JPanel implements Runnable{
     private static final int SCREEN_LIMIT_Y = 300;
     int numVidas = 5;
     int puntuacionMax;
@@ -57,7 +57,7 @@ public class Arkanoid extends Applet implements Runnable{
             noseve.drawString("ENHORABUENA CRRRRRRACK", 60, 100);
             pelota.setColor(Color.black);
         }
-        noseve.drawString("Puntuaci�n M�xima: " + puntuacionMax, 120, 270);
+        noseve.drawString("Puntuación Máxima: " + puntuacionMax, 120, 270);
         if(numVidas == 0) {
             noseve.setColor(Color.red);
             noseve.drawString("GAME OVER! LOOSER", 80, 100);

@@ -15,7 +15,6 @@ public class Pelota extends Shape {
 
     public void dibujar(Graphics g) {
         g.setColor(getColor());
-        g.setColor(getColor());
         g.fillOval(x, y, width, height);
     }
 

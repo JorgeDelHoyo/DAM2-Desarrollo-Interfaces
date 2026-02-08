@@ -1,12 +1,11 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
-             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-             xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
-	http://maven.apache.org/xsd/maven-4.0.0.xsd">
-        <modelVersion>4.0.0</modelVersion>
-        <groupId>org.example</groupId>
-        <artifactId>ARKANOID</artifactId>
-        <version>1.0-SNAPSHOT</version>
-        <packaging>jar</packaging>
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>org.example</groupId>
+    <artifactId>ARKANOID</artifactId>
+    <version>1.0-SNAPSHOT</version>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
@@ -28,6 +27,15 @@
             <version>5.11.0</version>
             <scope>test</scope>
         </dependency>
+
+        <!-- AWT -->
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-subclass</artifactId>
+            <version>5.11.0</version>
+            <scope>test</scope>
+        </dependency>
+
         <dependency>
             <groupId>org.mockito</groupId>
             <artifactId>mockito-junit-jupiter</artifactId>
@@ -40,6 +48,18 @@
             <artifactId>activation</artifactId>
             <version>1.1.1</version>
         </dependency>
+
+        <!-- MockitoExamen Cobra -->
+        <dependency>
+            <groupId>org.glassfish.corba</groupId>
+            <artifactId>glassfish-corba-omgapi</artifactId>
+            <version>4.2.4</version>
+        </dependency>
+        <dependency>
+            <groupId>org.glassfish.corba</groupId>
+            <artifactId>glassfish-corba-orb</artifactId>
+            <version>4.2.4</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -51,9 +71,7 @@
                 <configuration>
                     <source>17</source>
                     <target>17</target>
-                    <excludes>
-                        <exclude>**/MockitoExamen.java</exclude>
-                    </excludes>
+                    <excludes>**/MockitoExamen**</excludes>
                 </configuration>
             </plugin>
 
@@ -63,6 +81,11 @@
                 <version>3.2.5</version>
                 <configuration>
                     <argLine>@{argLine} -XX:+EnableDynamicAgentLoading -Xshare:off --add-opens java.desktop/java.awt=ALL-UNNAMED</argLine>
+                    <!-- AWT -->
+                    <systemPropertyVariables>
+                        <org.mockito.plugins.MockMaker>mock-maker-subclass</org.mockito.plugins.MockMaker>
+                    </systemPropertyVariables>
+
                 </configuration>
             </plugin>
 
@@ -70,17 +93,11 @@
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
                 <version>0.8.10</version>
-
                 <configuration>
                     <excludes>
                         <exclude>**/MockitoExamen*</exclude>
-                        <exclude>**/Arkanoid*</exclude>
-                        <exclude>**/Bloque*</exclude>
-                        <exclude>**/GameConstants*</exclude>
-                        <exclude>**/Pelota*</exclude>
                     </excludes>
                 </configuration>
-
                 <executions>
                     <execution>
                         <goals>

@@ -18,7 +18,7 @@ public class ShapeTest {
         shape.setColor(Color.RED);
         assertEquals(Color.RED,shape.getColor());
     }
-    /**
+
     @Test
     public void testConSpy() {
 
@@ -37,5 +37,4 @@ public class ShapeTest {
         // Verificamos que el color cambió de verdad
         assertEquals(Color.RED, shapeSpy.getColor(),"Se ha cambiado el color");
     }
-    */
 }
