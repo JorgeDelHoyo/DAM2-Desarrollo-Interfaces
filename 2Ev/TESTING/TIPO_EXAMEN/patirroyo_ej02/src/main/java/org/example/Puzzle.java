@@ -27,14 +27,14 @@ public class Puzzle extends JPanel{
     private Graphics noseve;
     public final static int SIZEX = 1000;
     public final static int SIZEY = 600;
-    private Image imagenes[];
-    private Pieza piezas[];
-    private Pieza actual;
-    private int posActual;
-    private int actualIniX;
-    private int actualIniY;
-    private Rectangle[] sitios;
-    private Image referencia;
+    public Image imagenes[];
+    public Pieza[] piezas;
+    public Pieza actual;
+    public int posActual;
+    public int actualIniX;
+    public int actualIniY;
+    public Rectangle[] sitios;
+    public Image referencia;
 
     public Puzzle(){
         init();

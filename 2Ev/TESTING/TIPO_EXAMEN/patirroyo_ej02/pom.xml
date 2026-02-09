@@ -76,7 +76,6 @@
                             <excludes>
                                 <exclude>**/Main*</exclude>
                                 <exclude>**util/*</exclude>
-                                <exclude>**/Puzzle*</exclude>
                                 <exclude>**/Puzzle1*</exclude>
                             </excludes>
                         </configuration>
@@ -102,7 +101,6 @@
                             <excludes>
                                 <exclude>**/Main*</exclude>
                                 <exclude>util</exclude>
-                                <exclude>**/Puzzle*</exclude>
                                 <exclude>**/Puzzle1*</exclude>
                             </excludes>
                         </configuration>
